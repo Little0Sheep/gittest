@@ -159,7 +159,7 @@ saver=tf.train.Saver()
 
 with tf.Session() as sess:
     saver.restore(sess,"my_net/cn_cnn_net.ckpt")
-    y_pre = sess.run(tf.argmax(prediction, 1), feed_dict={X: test_data_x[:5], keep_prob: 1})
+    y_pre = sess.run(tf.argmax(prediction, 1), feed_dict={X: test_data_x[4:5], keep_prob: 1})
     print("预测汉字是：",char_set[y_pre[0]])
-    plt.imshow(np.array(test_data_x[:5]).reshape(64,64))
+    plt.imshow(np.array(test_data_x[4:5]).reshape(64,64))
     plt.show()
